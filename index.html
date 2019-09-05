@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>斗鱼礼物大全</title>
     <link rel="shortcut icon" type="image/png" href="https://raw.githubusercontent.com/wolf-scream/gift_effect/master/favicon.ico">
-    <link href="https://raw.githack.com/wolf-scream/gift_effect/master/main.css" rel="stylesheet">
+    <!-- <link href="https://raw.githack.com/wolf-scream/gift_effect/master/main.css" rel="stylesheet"> -->
+    <link href="https://rawcdn.githack.com/wolf-scream/gift_effect/eefd504cd088cacafbe4452bad34ad61afa7add6/main.css" rel="stylesheet">
 </head>
 
 <body id="top">
@@ -72,28 +73,6 @@
     </div>
 <!--原json网址需要跨域支持 https://webconf.douyucdn.cn/resource/common/gift/flash/gift_effect.json -->
     <script type="text/javascript">
-        function jQueryGet() {
-             var url = "https://raw.githubusercontent.com/wolf-scream/gift_effect/master/gift_effect.json";
-            $.get(url,function(result) {
-                result = result.substring(17, result.length-2);
-                var jsonData = JSON.parse(result);
-                jsonData=jsonData.data.flashConfig;
-                console.log(jsonData);
-                var anchorNode = document.querySelector(".card-columns");
-                for(let key in jsonData){
-                    if(jsonData[key].hdt!=""){
-                        var imgTag ="<figure class='pp-effect'>";
-                        imgTag+="<img class='img-fluid' src='"+jsonData[key].hdt +"' alt='all'>";
-                        imgTag+="<figcaption><div class='h4'>"+jsonData[key].name+"</div>" ;  
-                        imgTag+="<p>礼物id:"+key+"</p></figcaption></figure>"; 
-                        var divTag = document.createElement("div");
-                        divTag.setAttribute("class","card");
-                        divTag.innerHTML =  imgTag;
-                        anchorNode.appendChild(divTag);
-                    }       
-                } 
-            });
-        }
 
         function fetchGet() {
         	fetch('https://raw.githubusercontent.com/wolf-scream/gift_effect/master/gift_effect.json',{
