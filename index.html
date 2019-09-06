@@ -91,7 +91,7 @@
                 method: 'GET',
                 mode: 'cors', //请求模式为跨域
                 cache: 'default', //no-cache
-                credentials: 'same', // 同源则加入凭据头,cookies
+                credentials: 'same-origin', // 同源则加入凭据头,omit,include
 				}).then(res => {
 				    return res.text();
 				}).then(result => {
