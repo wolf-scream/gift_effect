@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>斗鱼礼物大全</title>
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/wolf-scream/gift_effect/master/favicon.ico"> 
+  <link rel="stylesheet" type="text/css" href="css/style1.css" /> 
+  <script src="js/modernizr-custom.js"></script> 
+ </head> 
+ <body class="demo-1"> 
+  <!--         <header>
+                <nav class="navbar" style=" margin-top: 30px; padding-top: 30px;" >
+                    <div class="container">
+                        <img src="https://raw.githubusercontent.com/wolf-scream/gift_effect/master/favicon.png">
+                        <h1 style="text-align: center;"><a class="navbar-brand" href="index.html">斗鱼礼物图谱大全</a>	</h1>
+              			<div class="collapse" style="white-space: nowrap; text-align:right; margin-right: 50px;font-size: 24px;">
+              				<a class="nav-link" href="index.html">主页</a>
+                			<a class="nav-link" href="https://greasyfork.org/zh-CN/scripts/389379">更多</a>
+                		    <a class="nav-link" href="https://github.com/wolf-scream/gift_effect">支持</a>
+                		</div>
+                    </div>
+                </nav>
+        </header> --> 
+  <header style="clear:both;"> 
+   <!-- <img src="https://raw.githubusercontent.com/wolf-scream/gift_effect/master/favicon.png"> --> 
+   <h1 style="text-align: center;color: yellow;">斗鱼礼物图谱大全</h1> 
+   <div class="collapse" style="white-space: nowrap; text-align:right;  margin-right: 10%; font-size: 24px; color: green;"> 
+    <a class="nav-link" style="text-decoration:none;" href="index.html">主页</a> 
+    <a class="nav-link" style="text-decoration:none;" href="https://greasyfork.org/zh-CN/scripts/389379">更多</a> 
+    <a class="nav-link" style="text-decoration:none;" href="https://github.com/wolf-scream/gift_effect">支持</a> 
+   </header> 
+   <div style="text-align: left;color:lime; margin-left: 30px"> 
+    <p>🧐这里涵盖了绝大部分带图片链接的斗鱼礼物，以定制的火箭(超火)种类最多</p> 
+    <p>😘由于是一次性加载所有图谱，网速慢的小伙伴们要耐心多等待几秒</p> 
+   </div> 
+  </div> 
+  <div class="container"> 
+   <div class="content"> 
+    <div class="grid"> 
+     <!-- 			<div class="grid__item" data-size="1280x853"> <a href="images/weix/1.png" class="img-wrap"><img src="images/weix/1.png" alt="img1" />
+				<div class="description description--grid">Assemblage</div>
+				</a> </div>
+			<div class="grid__item" data-size="958x1280"> <a href="images/weix/2.png" class="img-wrap"><img src="images/weix/2.png" alt="img2" />
+				<div class="description description--grid">Demesne</div>
+				</a> </div>
+			<div class="grid__item" data-size="1280x853"> <a href="images/weix/3.png" class="img-wrap"><img src="images/weix/3.png" alt="img3" />
+				<div class="description description--grid">Vestigial</div>
+				</a> </div>
+			<div class="grid__item" data-size="865x1280"> <a href="images/weix/4.png" class="img-wrap"><img src="images/weix/4.png" alt="img4" />
+				<div class="description description--grid">Zephyr</div>
+				</a> </div> --> 
+    </div> 
+    <!-- /grid --> 
+    <div class="preview"> 
+     <button class="action action--close"><i class="fa fa-times">x</i><span class="text-hidden">Close</span></button> 
+     <div class="description description--preview"></div> 
+    </div> 
+    <!-- /preview --> 
+   </div> 
+  </div> 
+  <!-- /container --> 
+  <script type="text/javascript">
+	    function fetchGet() {
+        	fetch('https://raw.githubusercontent.com/wolf-scream/gift_effect/master/gift_effect.json',{
+                method: 'GET',
+                mode: 'cors', //请求模式为跨域
+                cache: 'default', //no-cache
+                credentials: 'same-origin', // 同源则加入凭据头,omit,include
+				}).then(res => {
+				    return res.text();
+				}).then(result => {
+				    // console.log('获取的结果', result);
+					result = result.substring(17, result.length-2);
+                	var jsonData = JSON.parse(result);
+                	jsonData=jsonData.data.flashConfig;
+                	console.log(jsonData);
+                	var anchorNode = document.querySelector(".grid");
+                	for(let key in jsonData){
+                	    if(jsonData[key].hdt!=""){
+                	        var imgTag ="<a href='images/weix/9.png' class='img-wrap'>";
+                	        imgTag+="<img src='"+jsonData[key].hdt +"' alt='all'>";
+                	        imgTag+="<div class='description description--grid'>名称:";  
+                	        imgTag+=jsonData[key].name + "   id:"+key+"</div></a>"; 
+                	        var divTag = document.createElement("div");
+                	        divTag.setAttribute("class","grid__item");
+                	        divTag.setAttribute("data-size","1280x850");
+                	        divTag.innerHTML = imgTag;
+                	        anchorNode.appendChild(divTag);
+                	    }       
+                	} 
+				}).catch(err => {
+				    console.log('请求错误', err);
+			})
+        }
+        // fetchGet();
+</script> 
+  <script src="js/imagesloaded.pkgd.min.js"></script> 
+  <script src="js/masonry.pkgd.min.js"></script> 
+  <script src="js/classie.js"></script> 
+  <script src="js/main.js"></script> 
+  <script>
+		function fetchGet() {
+        	fetch('https://raw.githubusercontent.com/wolf-scream/gift_effect/master/gift_effect.json',{
+                method: 'GET',
+                mode: 'cors', //请求模式为跨域
+                cache: 'default', //no-cache
+                credentials: 'same-origin', // 同源则加入凭据头,omit,include
+				}).then(res => {
+				    return res.text();
+				}).then(result => {
+				    // console.log('获取的结果', result);
+					result = result.substring(17, result.length-2);
+                	var jsonData = JSON.parse(result);
+                	jsonData=jsonData.data.flashConfig;
+                	// console.log(jsonData);
+                	var anchorNode = document.querySelector(".grid");
+                	for(let key in jsonData){
+                	    if(jsonData[key].hdt!=""){
+                	        var imgTag ="<a href='"+ jsonData[key].hdt +"' class='img-wrap' style='text-decoration:none;'>";
+                	        imgTag+="<img src='"+ jsonData[key].hdt +"' alt='all'>";
+                	        //imgTag+="<div class='description description--grid'>名称:" + jsonData[key].name;
+                	        imgTag+="<div class='description description--grid'>名称:" + jsonData[key].name;  
+                	        imgTag+="   id:"+ key +"</div></a>"; 
+                	        var divTag = document.createElement("div");
+                	        divTag.setAttribute("class","grid__item");
+                	        divTag.setAttribute("data-size","1280x850");
+                	        divTag.innerHTML = imgTag;
+                	        anchorNode.appendChild(divTag);
+                	    }       
+                	} 
+                gridFx();
+				}).catch(err => {
+				    console.log('请求错误', err);
+			})
+        }
+        fetchGet();
+		// create SVG circle overlay and append it to the preview element
+		function createCircleOverlay(previewEl) {
+			var dummy = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			dummy.setAttributeNS(null, 'version', '1.1');
+			dummy.setAttributeNS(null, 'width', '100%');
+			dummy.setAttributeNS(null, 'height', '100%');
+			dummy.setAttributeNS(null, 'class', 'overlay');
+			var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+			var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			circle.setAttributeNS(null, 'cx', 0);
+			circle.setAttributeNS(null, 'cy', 0);
+			circle.setAttributeNS(null, 'r', Math.sqrt(Math.pow(previewEl.offsetWidth,2) + Math.pow(previewEl.offsetHeight,2)));
+			dummy.appendChild(g);
+			g.appendChild(circle);
+			previewEl.appendChild(dummy);
+		}
+	function gridFx(){
+		new GridFx(document.querySelector('.grid'), {
+			onInit : function(instance) {
+				createCircleOverlay(instance.previewEl);
+			},
+			onResize : function(instance) {
+				instance.previewEl.querySelector('svg circle').setAttributeNS(null, 'r', Math.sqrt(Math.pow(instance.previewEl.offsetWidth,2) + Math.pow(instance.previewEl.offsetHeight,2)));
+			},
+			onOpenItem : function(instance, item) {
+				// item's image
+				var gridImg = item.querySelector('img'),
+					gridImgOffset = gridImg.getBoundingClientRect(),
+					win = {width: document.documentElement.clientWidth, height: window.innerHeight},
+					SVGCircleGroupEl = instance.previewEl.querySelector('svg > g'),
+					SVGCircleEl = SVGCircleGroupEl.querySelector('circle');
+					
+				SVGCircleEl.setAttributeNS(null, 'r', Math.sqrt(Math.pow(instance.previewEl.offsetWidth,2) + Math.pow(instance.previewEl.offsetHeight,2)));
+				// set the transform for the SVG g node. This will animate the circle overlay. The origin of the circle depends on the position of the clicked item.
+				if( gridImgOffset.left + gridImg.offsetWidth/2 < win.width/2 ) {
+					SVGCircleGroupEl.setAttributeNS(null, 'transform', 'translate(' + win.width + ', ' + (gridImgOffset.top + gridImg.offsetHeight/2 < win.height/2 ? win.height : 0) + ')');
+				}
+				else {
+					SVGCircleGroupEl.setAttributeNS(null, 'transform', 'translate(0, ' + (gridImgOffset.top + gridImg.offsetHeight/2 < win.height/2 ? win.height : 0) + ')');
+				}
+			}
+		});
+	}
+</script>   
+ </body>
+</html>
